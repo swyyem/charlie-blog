@@ -1,12 +1,12 @@
 name: charlie-blog deploy workflow
 
-# 设置触发时机，当推送master分支或者tag到远程时触发
+# 设置触发时机，当推送main分支或者tag到远程时触发
 on:
   push:
     tags:
       - "*"
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 # 各个脚本节点命令
@@ -21,11 +21,11 @@ jobs:
       ESBUILD_BINARY_PATH: "node_modules/esbuild/bin/esbuild"
       
     steps:
-      # 从master分支拉取代码
+      # 从main分支拉取代码
       - name: Checkout 🛎️
         uses: actions/checkout@v4
         with:
-          ref: "master"
+          ref: "main"
           
       # 安装pnpm
       - name: Install pnpm
