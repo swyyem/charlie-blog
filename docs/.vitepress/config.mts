@@ -1,29 +1,45 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from "vitepress";
+import utils from "./utils";
+const { getSideBar } = utils;
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/charlie-blog/tree/prod/', // 例如 '/charlie-blog/'
-  title: "my-blog",
-  description: "my own blog",
-  themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
-    ],
-
-    sidebar: [
+  base: "/charlie-blog/",
+  title: "Charlie Blog",
+  description: "Welcome to Charlie's blog!",
+  head: [
+    [
+      "link",
       {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
+        rel: "icon",
+        type: "image/svg+xml",
+        href: "/charlie-blog/websiteLogo.svg",
+      },
     ],
-
+  ],
+  cleanUrls: true,
+  themeConfig: {
+    logo: "/websiteLogo.svg",
+    outline: "deep",
+    nav: [
+      { text: "Home", link: "/" },
+      { text: "Front-end", link: "/front/engi/rule", activeMatch: "/front/" },
+      { text: "Back-end", link: "/back/framework/chooseFrameWork", activeMatch: "/back/" },
+      { text: "Others", link: "/others/operation/git", activeMatch: "/others/" },
+    ],
+    search: {
+      provider: "local",
+    },
+    sidebar: {
+      "/front/": getSideBar("front"),
+      "/back/": getSideBar("back"),
+      "/others": getSideBar("others"),
+    },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
-  }
-})
+      { icon: "github", link: "https://github.com/doggyegg/charlie-blog" },
+    ],
+    footer: {
+      message: "本站所有内容均为原创，转载请注明出处",
+      copyright: "Copyright © 2024-present charlie-chen",
+    },
+  },
+});
