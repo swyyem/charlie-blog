@@ -13,6 +13,9 @@ jobs:
   deploy-and-sync:
     # 执行环境为linux的ubuntu系统
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      deployments: write
     steps:
       # 从main分支拉取代码
       - name: Checkout 🛎️
@@ -43,3 +46,4 @@ jobs:
           folder: docs/.vitepress/dist
           single-commit: true
           clean: true
+          token: ${{ secrets.GITHUB_TOKEN }}
