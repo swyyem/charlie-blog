@@ -16,9 +16,9 @@ jobs:
     runs-on: ubuntu-latest
 
     # 添加环境变量
-    # env:
-    #   NODE_ENV: production # 设置 Node.js 环境为生产模式
-    #   ESBUILD_BINARY_PATH: "node_modules/esbuild/bin/esbuild" # 指定 esbuild 二进制路径
+    env:
+      NODE_ENV: production # 设置 Node.js 环境为生产模式
+      ESBUILD_BINARY_PATH: "node_modules/esbuild/bin/esbuild" # 指定 esbuild 二进制路径
 
     # 添加权限配置（新增部分）
     permissions:
