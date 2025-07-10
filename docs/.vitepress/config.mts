@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/charlie-blog/', // 例如 '/charlie-blog/'
   title: "my-blog",
   description: "my own blog",
   themeConfig: {
