@@ -20,6 +20,11 @@ jobs:
       NODE_ENV: production
       ESBUILD_BINARY_PATH: "node_modules/esbuild/bin/esbuild"
       
+    # 添加权限配置（新增部分）
+    permissions:
+      contents: write
+      deployments: write
+      
     steps:
       # 从main分支拉取代码
       - name: Checkout 🛎️
